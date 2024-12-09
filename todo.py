@@ -47,3 +47,32 @@ class ToDoList:
         for i, task in enumerate(sorted_tasks, start=1):
             result += f"{i}. {task}\n"
         return result
+
+def parse_command(command, todo_list):
+    parts = command.split()
+    if parts[0] == "ADD":
+        task_start = command.index('"') + 1
+        task_end = command.index('"', task_start)
+        description = command[task_start:task_end]
+        priority = "MEDIUM"
+        if "PRIORITY" in parts:
+                priority_index = parts.index("PRIORITY") + 1
+                priority = parts[priority_index]
+            return todo_list.add_task(description, priority)
+        except ValueError:
+            return "Invalid ADD command format."
+        elif parts[0] == "REMOVE":
+        try:
+            index = int(parts[2])
+            return todo_list.remove_task(index)
+        except (IndexError, ValueError):
+            return "Invalid REMOVE command format."
+    elif parts[0] == "SHOW":
+        if parts[1] == "ALL":
+            return todo_list.show_all()
+        elif parts[1] == "BY" and parts[2] == "PRIORITY":
+            return todo_list.show_by_priority()
+        else:
+            return "Invalid SHOW command."
+    else:
+        return "Unknown command."
