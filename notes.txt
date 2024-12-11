@@ -1,0 +1,12 @@
+TO TYPE IN TERMINAL
+
+ADD "Finish project" PRIORITY HIGH
+ADD "Clean the room" PRIORITY LOW
+ADD "Buy groceries" PRIORITY MEDIUM
+ADD "Check emails"
+
+SHOW ALL
+SHOW BY PRIORITY
+REMOVE 2 //Removes second task
+REMOVE 10 //Attempts to remove nonexistant task
+RANDOM COMMAND //Shows error for random input

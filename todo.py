@@ -1,3 +1,5 @@
+# Julian --> Task to ToDoList
+
 class Task:
     PRIORITY_MAP = {"LOW": 1, "MEDIUM": 2, "HIGH": 3}  # Lower number = higher priority
 
@@ -5,11 +7,14 @@ class Task:
         self.description = description
         self.priority = priority.upper()  # Always uppercase
 
+    # less than magic method. Assigns a number to each tasks (1 for low, 2 for medium, 3 for high) to later compare
     def __lt__(self, other):
         return Task.PRIORITY_MAP[self.priority] < Task.PRIORITY_MAP[other.priority]
 
+    # so we return a string and not a space in memory
     def __str__(self):
         return f"{self.description} (Priority: {self.priority})"
+        
 
 
 class ToDoList:
@@ -20,12 +25,14 @@ class ToDoList:
         self.tasks.append(Task(description, priority))
         return "Task added successfully."
 
+    #removes task and prints name of task
     def remove_task(self, index):
         if index < 1 or index > len(self.tasks):
             return "Invalid task number."
         removed = self.tasks.pop(index - 1)
         return f"Removed task: {removed}"
 
+    # loops through tasks
     def show_all(self):
         if not self.tasks:
             return "No tasks to show."
@@ -34,16 +41,17 @@ class ToDoList:
             result += f"{i}. {task}\n"
         return result
 
+    # Sorts items by checking value of each task (1, 2, or 3)
     def show_by_priority(self):
         if not self.tasks:
             return "No tasks to show."
-        sorted_tasks = sorted(self.tasks)
+        sorted_tasks = sorted(self.tasks) # Uses __lt__ here. Error without that piece of code.
         result = "Tasks sorted by priority:\n"
         for i, task in enumerate(sorted_tasks, start=1):
             result += f"{i}. {task}\n"
         return result
 
-
+# Pat McManus --> Parse_command code
 def parse_command(command, todo_list):
     parts = command.split()
     try:
