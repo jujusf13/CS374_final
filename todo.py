@@ -14,7 +14,7 @@ class Task:
 
     # so we return a string and not a space in memory
     def __str__(self):
-        return f"{self.description} (Priority: {self.priority})"
+        return f"{self.task} (Priority: {self.priority})"
         
 
 class ToDoList:
