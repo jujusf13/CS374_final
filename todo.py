@@ -16,7 +16,6 @@ class Task:
         return f"{self.description} (Priority: {self.priority})"
         
 
-
 class ToDoList:
     def __init__(self):
         self.tasks = []

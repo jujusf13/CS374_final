@@ -10,3 +10,5 @@ SHOW BY PRIORITY
 REMOVE 2 //Removes second task
 REMOVE 10 //Attempts to remove nonexistant task
 RANDOM COMMAND //Shows error for random input
+
+// No Priority given assigns it to medium
