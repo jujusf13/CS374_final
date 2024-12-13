@@ -6,7 +6,7 @@ ADD "Buy groceries" PRIORITY MEDIUM
 ADD "Check emails"
 
 SHOW ALL
-SHOW BY PRIORITY
+SHOW BY PRIORITY // does low to high
 REMOVE 2 //Removes second task
 REMOVE 10 //Attempts to remove nonexistant task
 RANDOM COMMAND //Shows error for random input

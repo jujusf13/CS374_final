@@ -45,6 +45,7 @@ class ToDoList:
         if not self.tasks:
             return "No tasks to show."
         sorted_tasks = sorted(self.tasks) # Uses __lt__ here. Error without that piece of code.
+        # takes in an array^^^^^ and sorts it
         result = "Tasks sorted by priority:\n"
         for i, task in enumerate(sorted_tasks, start=1):
             result += f"{i}. {task}\n"
