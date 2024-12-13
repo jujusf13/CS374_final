@@ -1,15 +1,16 @@
-# Julian --> Task to ToDoList
+# Patrick --> Task to ToDoList
 
 class Task:
     PRIORITY_MAP = {"LOW": 1, "MEDIUM": 2, "HIGH": 3}  # Lower number = higher priority
 
     def __init__(self, description, priority):
-        self.description = description
+        self.task = task
         self.priority = priority.upper()  # Always uppercase
 
     # less than magic method. Assigns a number to each tasks (1 for low, 2 for medium, 3 for high) to later compare
     def __lt__(self, other):
-        return Task.PRIORITY_MAP[self.priority] < Task.PRIORITY_MAP[other.priority]
+        inOrder = Task.PRIORITY_MAP[self.priority] < Task.PRIORITY_MAP[other.priority]
+        return inOrder
 
     # so we return a string and not a space in memory
     def __str__(self):
