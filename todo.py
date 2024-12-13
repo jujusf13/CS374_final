@@ -3,7 +3,7 @@
 class Task:
     PRIORITY_MAP = {"LOW": 1, "MEDIUM": 2, "HIGH": 3}  # Lower number = higher priority
 
-    def __init__(self, description, priority):
+    def __init__(self, task, priority):
         self.task = task
         self.priority = priority.upper()  # Always uppercase
 
